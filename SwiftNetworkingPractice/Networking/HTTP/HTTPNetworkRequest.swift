@@ -7,14 +7,14 @@
 
 import Foundation
 
+public typealias HTTPRouterPath = String
 public typealias HTTPParameters = [String: Any]?
 public typealias HTTPHeaders = [String:Any]?
 
 struct HTTPNetworkRequest {
     
-    
-    static func configureHTTPRequest(from route: HTTPNetworkRoute, with parameters: HTTPParameters, includes headers: HTTPHeaders, contains body: Data?, and method: HTTPMethod) throws -> URLRequest {
-        guard let url = URL(string: "https://ghibliapi.herokuapp.com/\(route.rawValue)") else { throw HTTPNetworkError.missingURL }
+    static func configureHTTPRequest(from path: HTTPRouterPath, with parameters: HTTPParameters, includes headers: HTTPHeaders, contains body: Data?, and method: HTTPMethod) throws -> URLRequest {
+        guard let url = URL(string: "https://ghibliapi.herokuapp.com/\(path)") else { throw HTTPNetworkError.missingURL }
         
         var request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10.0)
         request.httpMethod = method.rawValue

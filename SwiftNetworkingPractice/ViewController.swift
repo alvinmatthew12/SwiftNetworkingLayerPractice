@@ -9,21 +9,38 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    var filmServices: FilmServices!
     var films: [Film] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        filmServices = FilmServices()
         
-        getAllFilms()
+//        getAllFilms()
+        getFilmById()
     }
     
     func getAllFilms() {
-        filmServices.getFilms { (res) in
-            DispatchQueue.main.async {
-                print(res)
+        ServiceLayer.shared.request(router: HTTPRouter.getAllFilms, body: nil) { (result: Result<[Film]>) in
+            switch result {
+            case .success:
+                if let data = result.value {
+                    print(data)
+                }
+            case .failure:
+                print(result)
+            }
+        }
+    }
+    
+    func getFilmById() {
+        ServiceLayer.shared.request(router: HTTPRouter.getFilmById("2baf70d1-42bb-4437-b551-e5fed5a87abe"), body: nil) { (result: Result<Film>) in
+            switch result {
+            case .success:
+                if let data = result.value {
+                    print(data)
+                }
+            case .failure:
+                print(result)
             }
         }
     }
