@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct ServiceLayer {
+struct APIService {
     
-    static let shared = ServiceLayer()
+    static let shared = APIService()
     
     func request<T: Codable>(router: HTTPRouter, body: Data?, _ completion: @escaping (Result<T>) -> ()) {
         do {

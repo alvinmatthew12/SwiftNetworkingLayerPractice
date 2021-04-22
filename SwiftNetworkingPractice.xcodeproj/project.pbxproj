@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E15386F02631F2DA005C45C6 /* FilmsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15386EF2631F2DA005C45C6 /* FilmsViewModel.swift */; };
 		E1B2C13826306CA6008EF35E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B2C13726306CA6008EF35E /* AppDelegate.swift */; };
 		E1B2C13A26306CA6008EF35E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B2C13926306CA6008EF35E /* SceneDelegate.swift */; };
 		E1B2C13C26306CA6008EF35E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B2C13B26306CA6008EF35E /* ViewController.swift */; };
@@ -20,11 +21,12 @@
 		E1B2C15D2630757F008EF35E /* HTTPNetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B2C15C2630757F008EF35E /* HTTPNetworkResponse.swift */; };
 		E1B2C160263080AA008EF35E /* URLEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B2C15F263080AA008EF35E /* URLEncoder.swift */; };
 		E1B2C16326308277008EF35E /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B2C16226308277008EF35E /* Result.swift */; };
-		E1B2C166263082E1008EF35E /* ServiceLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B2C165263082E1008EF35E /* ServiceLayer.swift */; };
+		E1B2C166263082E1008EF35E /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B2C165263082E1008EF35E /* APIService.swift */; };
 		E1B2C16A263083B4008EF35E /* Film.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B2C169263083B4008EF35E /* Film.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E15386EF2631F2DA005C45C6 /* FilmsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmsViewModel.swift; sourceTree = "<group>"; };
 		E1B2C13426306CA6008EF35E /* SwiftNetworkingPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftNetworkingPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1B2C13726306CA6008EF35E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E1B2C13926306CA6008EF35E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -40,7 +42,7 @@
 		E1B2C15C2630757F008EF35E /* HTTPNetworkResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPNetworkResponse.swift; sourceTree = "<group>"; };
 		E1B2C15F263080AA008EF35E /* URLEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLEncoder.swift; sourceTree = "<group>"; };
 		E1B2C16226308277008EF35E /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
-		E1B2C165263082E1008EF35E /* ServiceLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLayer.swift; sourceTree = "<group>"; };
+		E1B2C165263082E1008EF35E /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		E1B2C169263083B4008EF35E /* Film.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Film.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -55,6 +57,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E15386EB2631F1C7005C45C6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E1B2C13D26306CA6008EF35E /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E15386EC2631F1E2005C45C6 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E15386EF2631F2DA005C45C6 /* FilmsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E15386ED2631F1EF005C45C6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E1B2C13B26306CA6008EF35E /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E15386EE2631F266005C45C6 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				E1B2C13726306CA6008EF35E /* AppDelegate.swift */,
+				E1B2C13926306CA6008EF35E /* SceneDelegate.swift */,
+				E1B2C14226306CA7008EF35E /* LaunchScreen.storyboard */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
 		E1B2C12B26306CA6008EF35E = {
 			isa = PBXGroup;
 			children = (
@@ -74,15 +110,14 @@
 		E1B2C13626306CA6008EF35E /* SwiftNetworkingPractice */ = {
 			isa = PBXGroup;
 			children = (
+				E15386EE2631F266005C45C6 /* Application */,
 				E1B2C168263083A2008EF35E /* Model */,
+				E15386EB2631F1C7005C45C6 /* View */,
+				E15386EC2631F1E2005C45C6 /* ViewModel */,
+				E15386ED2631F1EF005C45C6 /* Controller */,
 				E1B2C14C2630706C008EF35E /* Networking */,
-				E1B2C13726306CA6008EF35E /* AppDelegate.swift */,
-				E1B2C13926306CA6008EF35E /* SceneDelegate.swift */,
-				E1B2C13B26306CA6008EF35E /* ViewController.swift */,
-				E1B2C13D26306CA6008EF35E /* Main.storyboard */,
-				E1B2C14026306CA7008EF35E /* Assets.xcassets */,
-				E1B2C14226306CA7008EF35E /* LaunchScreen.storyboard */,
 				E1B2C14526306CA7008EF35E /* Info.plist */,
+				E1B2C14026306CA7008EF35E /* Assets.xcassets */,
 			);
 			path = SwiftNetworkingPractice;
 			sourceTree = "<group>";
@@ -121,7 +156,7 @@
 		E1B2C14F26307085008EF35E /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				E1B2C165263082E1008EF35E /* ServiceLayer.swift */,
+				E1B2C165263082E1008EF35E /* APIService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -204,12 +239,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E1B2C166263082E1008EF35E /* ServiceLayer.swift in Sources */,
+				E1B2C166263082E1008EF35E /* APIService.swift in Sources */,
 				E1B2C15A26307221008EF35E /* HTTPNetworkRequest.swift in Sources */,
 				E1B2C13C26306CA6008EF35E /* ViewController.swift in Sources */,
 				E1B2C157263071F2008EF35E /* HTTPNetworkError.swift in Sources */,
 				E1B2C160263080AA008EF35E /* URLEncoder.swift in Sources */,
 				E1B2C13826306CA6008EF35E /* AppDelegate.swift in Sources */,
+				E15386F02631F2DA005C45C6 /* FilmsViewModel.swift in Sources */,
 				E1B2C151263070C3008EF35E /* HTTPRouter.swift in Sources */,
 				E1B2C16A263083B4008EF35E /* Film.swift in Sources */,
 				E1B2C16326308277008EF35E /* Result.swift in Sources */,
